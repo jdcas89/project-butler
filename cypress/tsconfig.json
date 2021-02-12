@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "../node_modules",
+    "target": "es5",
+    "lib": ["esnext", "dom"],
+    "types": ["cypress",  "@testing-library/cypress"],
+    "typeRoots": ["./support"],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["**/*.ts", "support/index.js"]
+}

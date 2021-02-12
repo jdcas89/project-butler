@@ -1,0 +1,8 @@
+{
+  "plugins": ["cypress"],
+  "rules": {
+    "allowDeclarations": 0,
+    "allowDefinitionFiles": 0,
+    "@typescript-eslint/no-namespace": 1
+  }
+}
