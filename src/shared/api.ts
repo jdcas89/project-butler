@@ -1,24 +1,27 @@
 import { Project, User } from './types';
 import axios, { AxiosRequestConfig } from 'axios';
+import { TEST_USERS_ENABLED } from '../config/constants';
 
 const BACKEND_URL = 'http://localhost:8080/api';
 const PROJECT_ROUTE = '/projects';
 const ME_ROUTE = '/me';
 const INVITATION_ROUTE = '/invitation';
 
-const currentUserId = localStorage.getItem('current_test_user_id') || '1';
-
 const APIconfig: AxiosRequestConfig = {
   headers: {
-    'test-user': currentUserId,
     ['Content-Type']: 'application/json',
   },
 };
 
+console.log(TEST_USERS_ENABLED);
+if (TEST_USERS_ENABLED) {
+  const currentUserId = localStorage.getItem('current_test_user_id') || '1';
+  APIconfig.headers['test-user'] = currentUserId;
+}
+
 export const getCurrentUser = async () => {
   try {
-    const { data, ...rest } = await axios.get<User>(`${BACKEND_URL}${ME_ROUTE}`, APIconfig);
-    console.log(data);
+    const { data } = await axios.get<User>(`${BACKEND_URL}${ME_ROUTE}`, APIconfig);
     return data;
   } catch (e) {
     throw new Error(e);

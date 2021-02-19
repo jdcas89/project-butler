@@ -36,7 +36,7 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "dev": "concurrently --prefix=\"{name}({time})\" --timestamp-format=\"HH:mm:ss\" --kill-others -n \"Frontend,Backend\" -c \"green.bgBlack.bold,red.bgBlack.bold\" \"npm run start\" \"cd ./api/ && npm run start\"",
-    "e2e":"npx cypress open"
+    "e2e": "npx cypress open"
   },
   "eslintConfig": {
     "extends": [
