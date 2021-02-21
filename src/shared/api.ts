@@ -13,7 +13,6 @@ const APIconfig: AxiosRequestConfig = {
   },
 };
 
-console.log(TEST_USERS_ENABLED);
 if (TEST_USERS_ENABLED) {
   const currentUserId = localStorage.getItem('current_test_user_id') || '1';
   APIconfig.headers['test-user'] = currentUserId;
